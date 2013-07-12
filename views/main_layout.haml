@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    %title
+      Scorched Test
+  %body
+    - if flash[:error]
+      %p.error
+        =flash[:error]
+    =yield
