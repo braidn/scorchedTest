@@ -23,15 +23,15 @@ class MyApp < Scorched::Controller
 	end
 
 	#regex that needs to meet the has_name condition defined above
-	get '/ass', 7 do |capture|
+	get '/wrong', 7 do |capture|
 		@response = "Caught a regex! #{capture}"
 		#this flash is nested and fires much the same as the flash[:error] above
-		flash(:dick)[:nice_try] = 'Wow, clever'
+		flash(:tom)[:nice_try] = 'Wow, clever'
 		redirect('/')
 	end
 
 	get '/dick', 6 do
-		@response = 'You should get a response for being one'
+		@response = 'Good try... oh this one does exist'
 		render(:dick)
 	end
 	
@@ -39,7 +39,7 @@ class MyApp < Scorched::Controller
 	#the 5 is a priority value
 	#If we wanted to specify one method on this request we could omit route and put method.downcase
 	route '/*', -98, methods: ['POST', 'GET', 'DELETE'] do |capture|
-		error = "I see someone is looking for #{capture}, feel free to fuck off"
+		error = "I see someone is looking for #{capture}, feel free to go away"
 		#flash session accessed during next request
 		#IF NOT ACCESSED it hangs around until it is accessed
 		flash[:error] = error
